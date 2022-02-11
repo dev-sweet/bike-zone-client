@@ -1,0 +1,182 @@
+#header .navbar {
+  background-color: #fff;
+}
+#header .navbar .menu-bar {
+  background: none;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  font-size: 25px;
+}
+/* navbar for small  devices*/
+.navbar-small .nav-item .nav-link {
+  color: rgb(107, 107, 107);
+  font-size: 16px;
+  padding: 12px 15px 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+.navbar-small .nav-item .nav-link:hover {
+  background-color: rgb(224, 224, 224);
+  color: #000;
+}
+.navbar-small .nav-item,
+.offcanvas-header {
+  border-bottom: 2px solid rgb(243, 243, 243);
+}
+
+/* navbar for large devices */
+#header .navbar-brand .logo {
+  width: 150px;
+}
+#header .navbar-nav .nav-item .nav-link {
+  color: rgb(107, 107, 107);
+  font-weight: 500;
+  padding: 0 20px;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+#header .navbar-nav .nav-item .nav-link:hover {
+  color: #83b828;
+}
+#header .navbar-icons {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+#header .navbar-icons .navbar-icon {
+  padding: 0 10px;
+  font-size: 25px;
+  color: rgb(107, 107, 107);
+  font-weight: 400;
+  transition: 0.2s;
+}
+#header .navbar-icons .navbar-icon .user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(107, 107, 107);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+#header .navbar-icons .navbar-icon a {
+  color: rgb(107, 107, 107);
+  transition: 0.2s;
+}
+#header .navbar-icons .navbar-icon:hover,
+#header .navbar-icons .navbar-icon a:hover {
+  color: #83b828;
+  cursor: pointer;
+}
+#header .navbar-icons .navbar-icon .user:hover {
+  border-color: #83b828;
+}
+/* ----------LOGIN and REGISTER-------- */
+
+.offcanvas-header h2 {
+  padding-left: 10px;
+  font-size: 18px;
+  margin-top: 5px;
+}
+.login-and-register-form {
+  padding: 10px;
+}
+.login-inputs {
+  padding: 10px 0;
+}
+.login-inputs label {
+  color: rgb(82, 82, 82);
+  margin-bottom: 10px;
+}
+.login-inputs label span {
+  color: red;
+}
+.login-inputs input {
+  width: 100%;
+  padding: 8px 15px;
+  border: 1px solid rgb(177, 177, 177);
+  outline: none;
+}
+.login-inputs input:focus {
+  border-color: black;
+}
+.login-or-register-btn {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #83b828;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  outline: none;
+  border: none;
+}
+
+.divider-or {
+  margin: 10px 0;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+  color: black;
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+p.divider-or::after {
+  content: '';
+  width: 45%;
+  display: block;
+  height: 1px;
+  border: 1px dashed #878787;
+}
+p.divider-or::before {
+  content: '';
+  width: 45%;
+  display: block;
+  height: 1px;
+  border: 1px dashed #878787;
+  /* position: absolute; */
+}
+.login-or-register-btn.direct-login {
+  padding: 7px 15px;
+  border: 1px solid #83b828;
+  color: #000;
+  background-color: #fff;
+  transition: 0.3s;
+}
+.login-or-register-btn.direct-login:hover {
+  background-color: #a1d843;
+  color: #fff;
+}
+.login-or-register-btn.direct-login .login-icon {
+  font-size: 20px;
+}
+.toggle-link {
+  font-weight: 500;
+  color: black;
+  transition: 0.2s;
+}
+.toggle-link:hover {
+  color: #83b828;
+  cursor: pointer;
+}
+/* --------------------------------------------------------
+------------Responsive design for mobile devices-------------
+------------------------------------------------------------ */
+@media only screen and (max-width: 480px) {
+  #header .navbar-brand .logo {
+    width: 90px;
+  }
+  #header .navbar-icons .navbar-icon {
+    font-size: 20px;
+  }
+  #header .navbar-icons .navbar-icon .user {
+    width: 20px;
+    height: 20px;
+  }
+}
