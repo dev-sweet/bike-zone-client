@@ -7,7 +7,7 @@ import { BiLogInCircle } from 'react-icons/bi';
 import { HiMenuAlt1 } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
 import './Header.css';
-import { Offcanvas } from 'react-bootstrap';
+import { Offcanvas, OverlayTrigger, Tooltip } from 'react-bootstrap';
 const Header = () => {
   const [show, setShow] = useState(false);
   const [loginShow, setLoginShow] = useState(false);
@@ -94,19 +94,37 @@ const Header = () => {
           </div>
           <ul className="navbar-icons">
             <li className="navbar-icon user">
-              <span title="Accounts" className="user">
-                <AiOutlineUser />
-              </span>
+              <OverlayTrigger
+                key="top"
+                placement="top"
+                overlay={<Tooltip id="tooltip-top">Favorites</Tooltip>}
+              >
+                <span title="Accounts" className="user">
+                  <AiOutlineUser />
+                </span>
+              </OverlayTrigger>
             </li>
             <li className="navbar-icon">
-              <NavLink title="Favorite" to="">
-                <BsSuitHeart />
-              </NavLink>
+              <OverlayTrigger
+                key="top"
+                placement="top"
+                overlay={<Tooltip id="tooltip-top">Favorites</Tooltip>}
+              >
+                <NavLink to="/">
+                  <BsSuitHeart />
+                </NavLink>
+              </OverlayTrigger>
             </li>
             <li className="navbar-icon">
-              <span onClick={handleLoginShow} title="Login">
-                <BiLogInCircle />
-              </span>
+              <OverlayTrigger
+                key="top"
+                placement="top"
+                overlay={<Tooltip id="tooltip-top">Login</Tooltip>}
+              >
+                <span onClick={handleLoginShow}>
+                  <BiLogInCircle />
+                </span>
+              </OverlayTrigger>
             </li>
           </ul>
           {/* offcanvas for login */}
@@ -180,7 +198,7 @@ const Header = () => {
                     </div>
                     <div className="login-inputs">
                       <label htmlFor="lastName">
-                        Email <span>*</span>
+                        Last Name <span>*</span>
                       </label>
                       <br />
                       <input type="text" name="lastName" />
