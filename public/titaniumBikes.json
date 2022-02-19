@@ -1,0 +1,26 @@
+[
+  {
+    "id": "2001",
+    "name": "Journyman",
+    "price": "835",
+    "img": "https://i.ibb.co/xfsJKrV/journyman.jpg"
+  },
+  {
+    "id": "2002",
+    "name": "Blackborow",
+    "price": "845",
+    "img": "https://i.ibb.co/x5Y6b3Y/blackborow.jpg"
+  },
+  {
+    "id": "2003",
+    "name": "Vaya",
+    "price": "929",
+    "img": "https://i.ibb.co/hmfpKj9/vaya.jpg"
+  },
+  {
+    "id": "2004",
+    "name": "Cutthroat",
+    "price": "741",
+    "img": "https://i.ibb.co/SdWggnJ/cutthroat.jpg"
+  }
+]

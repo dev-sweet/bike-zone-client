@@ -115,13 +115,13 @@ const Header = () => {
                 </NavLink>
               </OverlayTrigger>
             </li>
-            <li className="navbar-icon">
+            <li className="navbar-icon" onClick={handleLoginShow}>
               <OverlayTrigger
                 key="top"
                 placement="top"
                 overlay={<Tooltip id="tooltip-top">Login</Tooltip>}
               >
-                <span onClick={handleLoginShow}>
+                <span>
                   <BiLogInCircle />
                 </span>
               </OverlayTrigger>

@@ -1,0 +1,113 @@
+#blog {
+  padding: 70px 0;
+}
+#blog .title {
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 0;
+}
+.after-title {
+  text-align: center;
+  color: #878787;
+  font-size: 14.5px;
+  margin-top: 10px;
+}
+.blogs-all {
+  padding-top: 30px;
+}
+.card.single-blog {
+  position: relative;
+  border-radius: 0px;
+  height: 100%;
+}
+.card.single-blog img.card-img-top {
+  border-radius: 0px;
+}
+.card.single-blog::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 141px;
+  right: 0px;
+  transition: 0.3s;
+}
+.card.single-blog:hover::after {
+  top: 15px;
+  left: 15px;
+  bottom: 156px;
+  right: 15px;
+  box-shadow: 0 0 0px 16px #d8d8d8bd;
+}
+.card.single-blog:hover {
+  cursor: pointer;
+}
+.card.single-blog .card-body {
+  padding: 15px 25px 30px 25px;
+}
+.card.single-blog .card-body small {
+  color: #a3a3a3;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.card.single-blog .card-body .card-title {
+  color: #333;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+.card.single-blog .card-body a {
+  color: #878787;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+.card.single-blog .card-body a:hover {
+  color: #83b828;
+}
+
+/* #blog .blogs-all .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.3s;
+} 
+ #blog .blogs-all .swiper-button-next:hover {
+  background-color: #83b828;
+}
+#blog .blogs-all .swiper-button-next:hover::after {
+  color: #fff;
+}
+#blog .blogs-all .swiper-button-next::after {
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+}
+#blog .blogs-all .swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.3s;
+}
+#blog .blogs-all .swiper-button-prev:hover {
+  background-color: #83b828;
+}
+#blog .blogs-all .swiper-button-prev:hover::after {
+  color: #fff;
+}
+#blog .blogs-all .swiper-button-prev::after {
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+}
+#blog .blogs-all .swiper-button-prev .swiper-button-disabled:hover {
+  background-color: #99d631;
+  cursor: pointer;
+} */

@@ -10,13 +10,13 @@
   align-items: center;
 }
 .banner1 {
-  background-image: url('../../images/bike-slide1.jpg');
+  background-image: url('../../../images/bike-slide1.jpg');
 }
 .banner2 {
-  background-image: url('../../images/home-bike-slider3.jpg');
+  background-image: url('../../../images//home-bike-slider3.jpg');
 }
 .banner3 {
-  background-image: url('../../images/home-bike-slider2.jpg');
+  background-image: url('../../../images/home-bike-slider2.jpg');
 }
 .banner-content {
   padding: 0 80px;

@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1001",
+    "name": "Mukluk Carbon",
+    "price": "1014",
+    "img": "https://i.ibb.co/T414GPT/bike1.jpg",
+    "images": [
+      "https://i.ibb.co/T414GPT/bike1.jpg",
+      "https://i.ibb.co/n0fs2Td/bike1-2.jpg",
+      "https://i.ibb.co/9gWhWKr/bike1-3.jpg"
+    ],
+    "sku": "N/A",
+    "vendor": "Bike Zone",
+    "availability": "In Stock",
+    "categories": "Bikes, Bike 2, Bike3, Bike4",
+    "tags": "Bike, Bikes, Cycle, Fat, Sport Bike",
+    "desctiption": "Features Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you...",
+    "features": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.",
+    "details": [
+      "Made from full-grain leather sourced from top-rated local Italian tanneries",
+      "Handcrafted in Italy at a best-in-class factory, a leader in responsible and sustainable practices"
+    ]
+  },
+  {
+    "id": "1002",
+    "name": "Journyman",
+    "price": "828",
+    "img": "https://i.ibb.co/ccFM832/bike2.jpg",
+    "images": [
+      "https://i.ibb.co/ccFM832/bike2.jpg",
+      "https://i.ibb.co/RYkGSWn/bike2-2.jpg",
+      "https://i.ibb.co/LkHnhcJ/bike2-3.jpg"
+    ],
+    "sku": "N/A",
+    "vendor": "Bike Zone",
+    "availability": "In Stock",
+    "categories": "Bikes, Bike 2, Bike3, Bike4",
+    "tags": "Bike, Bikes, Cycle, Fat, Sport Bike",
+    "desctiption": "Features Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you...",
+    "features": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.",
+    "details": [
+      "Made from full-grain leather sourced from top-rated local Italian tanneries",
+      "Handcrafted in Italy at a best-in-class factory, a leader in responsible and sustainable practices"
+    ]
+  },
+  {
+    "id": "1003",
+    "name": "Cutthroat",
+    "price": "735",
+    "img": "https://i.ibb.co/L6WTCTb/bike3.jpg",
+    "images": [
+      "https://i.ibb.co/L6WTCTb/bike3.jpg",
+      "https://i.ibb.co/km48YSq/bike3-2.jpg",
+      "https://i.ibb.co/LxKdwVg/bike3-3.jpg"
+    ],
+    "sku": "N/A",
+    "vendor": "Bike Zone",
+    "availability": "In Stock",
+    "categories": "Bikes, Bike 2, Bike3, Bike4",
+    "tags": "Bike, Bikes, Cycle, Fat, Sport Bike",
+    "desctiption": "Features Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you...",
+    "features": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.",
+    "details": [
+      "Made from full-grain leather sourced from top-rated local Italian tanneries",
+      "Handcrafted in Italy at a best-in-class factory, a leader in responsible and sustainable practices"
+    ]
+  },
+  {
+    "id": "1004",
+    "name": "Vaya",
+    "price": "921",
+    "img": "https://i.ibb.co/MDs2Dtj/bike4.jpg",
+    "images": [
+      "https://i.ibb.co/MDs2Dtj/bike4.jpg",
+      "https://i.ibb.co/SfQjKWD/bike4-2.jpg",
+      "https://i.ibb.co/6n2Dk3B/bike4-3.jpg"
+    ],
+    "sku": "N/A",
+    "vendor": "Bike Zone",
+    "availability": "In Stock",
+    "categories": "Bikes, Bike 2, Bike3, Bike4",
+    "tags": "Bike, Bikes, Cycle, Fat, Sport Bike",
+    "desctiption": "Features Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you...",
+    "features": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.",
+    "details": [
+      "Made from full-grain leather sourced from top-rated local Italian tanneries",
+      "Handcrafted in Italy at a best-in-class factory, a leader in responsible and sustainable practices"
+    ]
+  }
+]

@@ -1,0 +1,106 @@
+#bike-equipment {
+  padding: 12px 0;
+}
+
+.composent-and-equipment {
+  padding-left: 12px;
+  height: 100%;
+}
+.composent-and-equipment h3 {
+  font-weight: 700;
+}
+.composent-and-equipment h4,
+.narrowest-bike h4 {
+  font-weight: 700;
+  color: #aaaaaa;
+}
+.composent {
+  margin-bottom: 12px;
+}
+.composent-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 30px 35px;
+}
+.narrowest,
+.composent,
+.equipment {
+  position: relative;
+  overflow: hidden;
+}
+.narrowest:hover .narrowest-img img,
+.composent:hover .composent-img img,
+.equipment:hover .equipment-img img {
+  transform: scale(1.07);
+  cursor: pointer;
+}
+.narrowest-img,
+.composent-img,
+.equipment-img {
+  height: 100%;
+}
+.narrowest-img img,
+.composent-img img,
+.equipment-img img {
+  width: 100%;
+  height: 100%;
+  transition: ease-in-out 0.3s;
+}
+
+.narrowest-bike {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 45px 40px;
+}
+.narrowest-bike h3 {
+  color: #83b828;
+  font-weight: 700;
+}
+.equipment {
+  height: 50%;
+}
+.equipment-content {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: center;
+  padding: 0 35px;
+}
+.equipment-content a {
+  color: #83b828;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: 0.2s;
+}
+.equipment-content a:hover {
+  color: #a7df47;
+}
+
+/* responsive design for medium and small devices */
+@media only screen and (max-width: 992px) {
+  .composent-and-equipment {
+    padding-left: 0;
+    margin-top: 12px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .narrowest-bike {
+    top: 53px;
+    padding: 0 20px;
+  }
+  .composent-content {
+    padding: 15px 15px;
+  }
+  .equipment-content {
+    padding: 0 14px;
+  }
+}
