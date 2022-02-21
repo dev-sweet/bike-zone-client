@@ -5,6 +5,7 @@ import Header from '../../../components/Header/Header';
 import Products from '../Products/Products';
 import TitaniumBikes from '../TitaniumBikes/TitaniumBikes';
 import Blog from '../Blog/Blog';
+import Footer from '../../../components/Footer/Footer';
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Products />
       <TitaniumBikes />
       <Blog />
+      <Footer />
     </>
   );
 };
