@@ -1,0 +1,212 @@
+.sub-header {
+  background-color: #eaeaea;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sub-header a,
+.sub-header span {
+  color: black;
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+.sub-header a:hover {
+  color: #83b828;
+}
+/* swiper css */
+.gallery-images {
+  display: flex;
+}
+
+.mySwiper2 {
+  height: 80%;
+}
+
+.gallery-images .mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding-right: 5px;
+}
+
+.gallery-images .mySwiper .swiper-slide {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.gallery-images .mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+.gallery-images .mySwiper .swiper-wrapper {
+  display: block;
+  width: 300px;
+}
+.gallery-images .mySwiper .swiper-wrapper .swiper-slide img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+.gallery-images .mySwiper .swiper-wrapper .swiper-slide {
+  display: block;
+  width: 300px;
+  margin-bottom: 5px;
+}
+.gallery-images .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Bike info styles */
+.bike-info .bike-name {
+  font-size: 26px;
+  color: #000;
+  font-weight: 700;
+}
+
+.bike-info .price {
+  letter-spacing: 2px;
+}
+
+.add-to-cart {
+  width: 320px;
+  display: flex;
+  align-items: center;
+}
+
+.cart-quantity {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.cart-quantity input {
+  width: 30px;
+  height: 40px;
+  padding-left: 10px;
+  outline: none;
+  border: 1px solid black;
+  border-top: 0;
+  border-bottom: 0;
+}
+.cart-quantity button {
+  width: 30px;
+  height: 40px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.cart-button {
+  width: 220px;
+  margin-left: 10px;
+}
+.cart-button,
+.buy-button {
+  height: 40px;
+  background: #83b828;
+  border: 1px solid #83b828;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+button.buy-button {
+  width: 320px;
+}
+
+.bike-info .info p {
+  margin-bottom: 0;
+  margin-top: 4px;
+  font-size: 14px;
+}
+.bike-info .info p span {
+  color: #888;
+  font-weight: 500;
+}
+.bike-info .info p strong {
+  color: #000;
+}
+.rating {
+  color: rgb(253, 188, 0);
+  font-size: 20px;
+}
+.rating .reviews-count {
+  color: #888;
+  font-size: 16px;
+  transition: 0.2s;
+}
+.rating .reviews-count:hover {
+  color: #83b828;
+  cursor: pointer;
+}
+.trust-img img {
+  width: 320px;
+}
+.icons {
+  margin-top: 30px;
+}
+.icons a {
+  color: #555555;
+  padding: 4px;
+  margin-right: 10px;
+  transition: 0.2s;
+  font-size: 20px;
+  transition: 0.3s;
+}
+.icons a:hover {
+  transform: translateY(10px);
+}
+.icons .facebook:hover {
+  color: #4267b2;
+}
+.icons .twitter:hover {
+  color: #1da1f2;
+}
+.icons .linkedin:hover {
+  color: #0077b5;
+}
+.icons .insta:hover {
+  color: #cb2027;
+}
+
+/*----------------------------------------------------------
+---- responsive design for medium and small devices-----
+------------------------------------------------------------ */
+@media only screen and (max-width: 991px) {
+  .gallery-images {
+    position: relative;
+    display: block;
+  }
+  .gallery-images .mySwiper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+  }
+  .gallery-images .mySwiper .swiper-wrapper {
+    display: flex;
+    width: auto;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .add-to-cart {
+    width: 100%;
+  }
+  .add-to-cart .cart-button {
+    width: calc(100% - 100px);
+  }
+  button.buy-button {
+    width: 100%;
+  }
+}

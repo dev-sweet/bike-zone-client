@@ -125,17 +125,18 @@ const Footer = () => {
       </div>
       <div className="footer-bottom py-3">
         <div className="container">
-          <div className="d-flex justify-content-between align-items-center">
-            <p className="footer-bottom-links m-0">
+          <div className="d-block d-md-flex justify-content-between align-items-center">
+            <p className="footer-bottom-links m-0 text-center text-md-start">
               Developed by
               <Link
-                className="ms-3"
+                className="ms-2"
+                style={{ color: '#000', fontWeight: '700' }}
                 to="https://www.linkedin.com/in/sweet-ali/"
               >
                 Sweet
               </Link>
             </p>
-            <div className="footer-bottom-links">
+            <div className="footer-bottom-links text-center text-md-start">
               <Link to="/">Accessibility</Link>
               <Link to="/">About us</Link>
               <Link to="/">Contact</Link>

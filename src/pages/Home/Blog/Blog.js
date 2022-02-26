@@ -6,14 +6,17 @@ import './Blog.css';
 const Blog = () => {
   const blogs = [
     {
+      key: '1001',
       title: 'The Fireroad Schoolyard',
       img: 'https://i.ibb.co/7RZp6LC/blog1.jpg',
     },
     {
+      key: '1002',
       title: 'Free Your Feet – Free Your Mind',
       img: 'https://i.ibb.co/FnmBxHg/blog2.jpg',
     },
     {
+      key: '1003',
       title: 'On The Horizon',
       img: 'https://i.ibb.co/XyXC39N/blog4.jpg',
     },
@@ -27,10 +30,9 @@ const Blog = () => {
         <div className="blogs-all">
           <div className="row g-4">
             {blogs.map((blog) => (
-              <div className="col-lg-4 col-md-6">
+              <div key={blog.key} className="col-lg-4 col-md-6">
                 <div className="card single-blog">
                   <img className="card-img-top" src={blog.img} alt="" />
-                  {console.log(blog.img)}
                   <div className="card-body">
                     <small>Bikes</small>
                     <h5 className="card-title">{blog.title}</h5>
