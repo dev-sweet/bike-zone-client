@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import Spinner from '../../components/Spinner/Spinner';
 import { BsChevronRight } from 'react-icons/bs';
 import { ImFacebook } from 'react-icons/im';
 import { FiInstagram } from 'react-icons/fi';
@@ -23,12 +24,20 @@ import 'swiper/css/thumbs';
 import './BikeDetaills.css';
 import Rating from 'react-rating';
 import trust from '../../images/trust_image.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../redux/actions/cartAction';
+import { getProduct } from '../../redux/actions/productAction';
 
-const BikeDetails = () => {
-  const [bikeDetails, setBikeDetails] = useState({});
+const BikeDetails = (props) => {
+  console.log('props', props);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const params = useParams();
+  const dispatch = useDispatch();
   const id = params.id;
+  const productDetails = useSelector((state) => state.getProduct);
+  console.log(productDetails);
+  const { product, loading } = productDetails;
+
   const {
     name,
     price,
@@ -42,14 +51,16 @@ const BikeDetails = () => {
     features,
     details,
     reviews,
-  } = bikeDetails;
-  console.log(bikeDetails);
+  } = product;
+
+  console.log(price, product);
+  console.log('images', images);
   useEffect(() => {
-    fetch(`http://localhost:5000/bikes/${id}`)
-      .then((res) => res.json())
-      .then((data) => setBikeDetails(data));
-  }, []);
-  return (
+    dispatch(getProduct(id));
+  }, [dispatch, id]);
+  return loading ? (
+    <Spinner />
+  ) : (
     <>
       <Header />
       <div className="bike-detals">
@@ -77,7 +88,7 @@ const BikeDetails = () => {
                     className="mySwiper"
                   >
                     {images?.map((img) => (
-                      <SwiperSlide>
+                      <SwiperSlide key={`${img}-1`}>
                         <img src={img} alt="" />
                       </SwiperSlide>
                     ))}
@@ -89,12 +100,13 @@ const BikeDetails = () => {
                     }}
                     spaceBetween={10}
                     navigation={true}
+                    freeMode={false}
                     thumbs={{ swiper: thumbsSwiper }}
-                    modules={[FreeMode, Navigation, Thumbs]}
+                    // modules={[FreeMode, Navigation, Thumbs]}
                     className="mySwiper2"
                   >
                     {images?.map((img) => (
-                      <SwiperSlide>
+                      <SwiperSlide key={img}>
                         <img src={img} alt="" />
                       </SwiperSlide>
                     ))}
@@ -113,17 +125,17 @@ const BikeDetails = () => {
                       initialRating={reviews?.point}
                     />
                     <span className="reviews-count">
-                      ({reviews?.person} reviews)
+                      ({product?.reviews?.person} reviews)
                     </span>
                   </div>
-                  <p>{desctiption}</p>
+                  <p>{product?.desctiption}</p>
                   <div className="cart-and-buy">
                     <div className="add-to-cart">
                       <div className="cart-quantity">
                         <button>
                           <AiOutlineMinus />
                         </button>
-                        <input type="text" value="1" />
+                        <input type="text" />
                         <button>
                           <AiOutlinePlus />
                         </button>
@@ -186,14 +198,15 @@ const BikeDetails = () => {
               <div className="col-md-6">
                 <div className="features">
                   <h3>Features</h3>
-                  <p>{features}</p>
+                  <p>{product?.features}</p>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="details">
                   <h3>Details</h3>
                   <ul>
-                    {details && details.map((detail) => <li>{detail}</li>)}
+                    {product?.details &&
+                      product?.details.map((detail) => <li>{detail}</li>)}
                   </ul>
                 </div>
               </div>
@@ -203,8 +216,8 @@ const BikeDetails = () => {
         <div className="images pb-5">
           <div className="container">
             <div className="row g-5">
-              {images &&
-                images.map((img) => (
+              {product?.images &&
+                product?.images.map((img) => (
                   <div className="col-md-4">
                     <img className="w-100" src={img} alt="" />
                   </div>

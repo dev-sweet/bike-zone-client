@@ -5,7 +5,7 @@ const Product = ({ product }) => {
   const { img, name, price, _id } = product;
   const navigate = useNavigate();
   const handleClick = (id) => {
-    const url = `bikes/${id}`;
+    const url = `/bikes/${id}`;
     navigate(url);
   };
   return (

@@ -1,15 +1,19 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home/Home';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import BikeDetails from './pages/BikeDetails/BikeDetails';
+import { Bikes } from './pages/Bikes/Bikes';
+import Cart from './pages/Cart/Cart/Cart';
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="bikes/:id" element={<BikeDetails />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/bikes" element={<Bikes />} />
+          <Route exact path="/bikes/:id" element={<BikeDetails />} />
+          <Route exact path="/cart" element={<Cart />} />
         </Routes>
       </Router>
     </div>

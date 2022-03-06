@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Product from '../Product/Product';
+import { getProducts as listProducts } from '../../../redux/actions/productAction';
+import Spinner from '../../../components/Spinner/Spinner';
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const getProducts = useSelector((state) => state.getProducts);
+  const { products, error, loading } = getProducts;
+
+  // const
   useEffect(() => {
-    fetch('http://localhost:5000/bikes')
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-  return (
+    dispatch(listProducts());
+  }, [dispatch]);
+  return loading ? (
+    <Spinner />
+  ) : (
     <div className="py-5" id="total-products">
       <div className="container">
         <h2
