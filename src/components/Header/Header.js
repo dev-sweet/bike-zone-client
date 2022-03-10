@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../images/logo.png';
-import { AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineUser, AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsSuitHeart } from 'react-icons/bs';
 import { BiLogInCircle } from 'react-icons/bi';
 import { HiMenuAlt1 } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
-import './Header.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadFromLocalStorage } from '../../redux/actions/cartAction';
 import { Offcanvas, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import './Header.css';
+
 const Header = () => {
   const [show, setShow] = useState(false);
   const [loginShow, setLoginShow] = useState(false);
@@ -17,6 +20,15 @@ const Header = () => {
   const handleLoginClose = () => setLoginShow(false);
   const handleLoginShow = () => setLoginShow(true);
   const handleRegisterClose = () => setRegisterShow(false);
+
+  // sum total cart items
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+  let totalCartItems = 0;
+  for (let item of cartItems) {
+    totalCartItems += item.qty;
+  }
   const handleRegister = () => {
     setLoginShow(false);
     setRegisterShow(true);
@@ -25,6 +37,10 @@ const Header = () => {
     setLoginShow(true);
     setRegisterShow(false);
   };
+
+  useEffect(() => {
+    dispatch(loadFromLocalStorage());
+  }, [dispatch]);
 
   return (
     <div id="header">
@@ -93,7 +109,7 @@ const Header = () => {
             </ul>
           </div>
           <ul className="navbar-icons">
-            <li className="navbar-icon user">
+            {/* <li className="navbar-icon user">
               <OverlayTrigger
                 key="top"
                 placement="top"
@@ -103,15 +119,28 @@ const Header = () => {
                   <AiOutlineUser />
                 </span>
               </OverlayTrigger>
-            </li>
-            <li className="navbar-icon">
+            </li> */}
+            <li className="navbar-icon favorites">
               <OverlayTrigger
                 key="top"
                 placement="top"
                 overlay={<Tooltip id="tooltip-top">Favorites</Tooltip>}
               >
-                <NavLink to="/">
+                <NavLink to="/favorites">
                   <BsSuitHeart />
+                  <span>0</span>
+                </NavLink>
+              </OverlayTrigger>
+            </li>
+            <li className="navbar-icon cart">
+              <OverlayTrigger
+                key="top"
+                placement="top"
+                overlay={<Tooltip id="tooltip-top">Cart</Tooltip>}
+              >
+                <NavLink to="/cart">
+                  <AiOutlineShoppingCart />
+                  <span>{totalCartItems}</span>
                 </NavLink>
               </OverlayTrigger>
             </li>

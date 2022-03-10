@@ -26,7 +26,7 @@ const Footer = () => {
                     <Link
                       className="facebook"
                       target="_blank"
-                      to="https://www.facebook.com/abdullah.sweet.13/"
+                      to="/https://www.facebook.com/abdullah.sweet.13/"
                     >
                       <ImFacebook />
                     </Link>

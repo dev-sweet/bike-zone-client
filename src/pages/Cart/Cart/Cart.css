@@ -1,3 +1,15 @@
+.empty-list {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 90px;
+}
+.empty-list .empty-icon {
+  font-size: 150px;
+}
 .cart-product-head {
   display: flex;
   align-items: center;
@@ -17,7 +29,74 @@
   font-weight: 600;
   text-transform: uppercase;
 }
+.cart-subtotal {
+  box-shadow: 0 0px 4px 2px #e4e4e4;
+  border-radius: 3px;
+  padding: 30px 20px;
+}
+/* style checkbox */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  /* -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+}
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 15px;
+  width: 15px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(167, 167, 167);
+}
 
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #83b828;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.checkbox-error {
+  font-weight: 14px;
+  color: red;
+}
 @media only screen and (max-width: 767px) {
   .cart-product-head .product {
     width: 260px;

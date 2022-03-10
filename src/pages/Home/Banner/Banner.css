@@ -35,6 +35,7 @@
 .banner-btn {
   background-color: #83b828;
   border: 1px solid #83b828;
+text-decoration: none;
   color: #fff;
   padding: 10px 50px;
   font-size: 12px;
@@ -45,6 +46,7 @@
 }
 .banner-btn:hover {
   background-color: #b2e45c;
+  color: #fff;
 }
 .swiper-button-prev,
 .swiper-button-next {

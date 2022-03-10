@@ -24,10 +24,16 @@
   margin-left: 12px;
 }
 .cart-desc .cart-name {
+  text-decoration: none;
+  color: #000;
+  display: block;
   font-weight: 600;
   margin: 0;
+  transition: 0.2s;
 }
-
+.cart-desc .cart-name:hover {
+  color: #93b838;
+}
 .cart-desc .cart-delete {
   color: #000;
   border: 0;

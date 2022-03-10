@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineDelete } from 'react-icons/ai';
-// import { useDispatch } from 'react-redux';
 import './CartProduct.css';
+
 const CartProduct = ({ product, handleDelete, handleUpdateCart }) => {
   const { _id, name, price, img, qty } = product;
-  // const dispatch = useDispatch();
 
   // handle increment quantity
   const handleIncrement = () => {
@@ -23,10 +23,14 @@ const CartProduct = ({ product, handleDelete, handleUpdateCart }) => {
     <div className="cart-product">
       <div className="cart-product-info">
         <div className="cart-img">
-          <img src={img} alt="" />
+          <Link to={`/bikes/${_id}`}>
+            <img src={img} alt="" />
+          </Link>
         </div>
         <div className="cart-desc">
-          <p className="cart-name">{name}</p>
+          <Link className="cart-name" to={`/bikes/${_id}`}>
+            {name}
+          </Link>
           <OverlayTrigger
             key="top"
             placement="right"

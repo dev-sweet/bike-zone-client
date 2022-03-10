@@ -1,4 +1,4 @@
-#header{
+#header {
   border-bottom: 1px solid black;
 }
 #header .navbar {
@@ -71,9 +71,26 @@
   width: 25px;
   height: 25px;
 }
+
 #header .navbar-icons .navbar-icon a {
   color: rgb(107, 107, 107);
+  text-decoration: none;
+  position: relative;
   transition: 0.2s;
+}
+#header .navbar-icons .navbar-icon a span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 18px;
+  border-radius: 50%;
+  top: -3px;
+  right: -9px;
+  background: #83b828;
+  color: #fff;
+  font-size: 12px;
 }
 #header .navbar-icons .navbar-icon:hover,
 #header .navbar-icons .navbar-icon a:hover {
@@ -135,7 +152,6 @@
   text-align: center;
   font-weight: 500;
   color: black;
-  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: space-between;
