@@ -1,9 +1,24 @@
 import React from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineDelete } from 'react-icons/ai';
+// import { useDispatch } from 'react-redux';
 import './CartProduct.css';
-const CartProduct = ({ product }) => {
-  const { name, price, img } = product;
+const CartProduct = ({ product, handleDelete, handleUpdateCart }) => {
+  const { _id, name, price, img, qty } = product;
+  // const dispatch = useDispatch();
+
+  // handle increment quantity
+  const handleIncrement = () => {
+    if (qty < 5) {
+      handleUpdateCart(_id, qty + 1);
+    }
+  };
+  // handle decrement quantity
+  const handleDecrement = () => {
+    if (qty > 1) {
+      handleUpdateCart(_id, qty - 1);
+    }
+  };
   return (
     <div className="cart-product">
       <div className="cart-product-info">
@@ -17,7 +32,7 @@ const CartProduct = ({ product }) => {
             placement="right"
             overlay={<Tooltip id="tooltip-right">Remove from cart</Tooltip>}
           >
-            <button className="cart-delete">
+            <button onClick={() => handleDelete(_id)} className="cart-delete">
               <AiOutlineDelete />
             </button>
           </OverlayTrigger>
@@ -27,16 +42,16 @@ const CartProduct = ({ product }) => {
         <p>${price}</p>
       </div>
       <div className="cart-quantity">
-        <button>
+        <button onClick={handleDecrement}>
           <AiOutlineMinus />
         </button>
-        <input type="text" value="1" />
-        <button>
+        <input type="text" value={qty} disabled />
+        <button onClick={handleIncrement}>
           <AiOutlinePlus />
         </button>
       </div>
       <div className="total">
-        <p>${price}</p>
+        <p>${qty * price}</p>
       </div>
     </div>
   );

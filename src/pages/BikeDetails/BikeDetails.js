@@ -28,17 +28,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/actions/cartAction';
 import { getProduct } from '../../redux/actions/productAction';
 
-const BikeDetails = (props) => {
-  console.log('props', props);
+const BikeDetails = () => {
+  const [quantity, setQuantity] = useState(1);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const params = useParams();
   const dispatch = useDispatch();
   const id = params.id;
   const productDetails = useSelector((state) => state.getProduct);
-  console.log(productDetails);
-  const { product, loading } = productDetails;
 
+  const { product, loading } = productDetails;
   const {
+    _id,
     name,
     price,
     images,
@@ -53,8 +53,26 @@ const BikeDetails = (props) => {
     reviews,
   } = product;
 
-  console.log(price, product);
-  console.log('images', images);
+  const handleQuantity = (e) => {
+    const value = parseInt(e.target.value);
+    if (value > 1 && value <= 5) {
+      setQuantity(value);
+    }
+  };
+  const handleIncrement = () => {
+    if (quantity < 5) {
+      setQuantity(quantity + 1);
+    }
+  };
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+  // add to cart
+  const addToCartHandler = () => {
+    dispatch(addToCart(_id, quantity));
+  };
   useEffect(() => {
     dispatch(getProduct(id));
   }, [dispatch, id]);
@@ -125,22 +143,31 @@ const BikeDetails = (props) => {
                       initialRating={reviews?.point}
                     />
                     <span className="reviews-count">
-                      ({product?.reviews?.person} reviews)
+                      ({reviews?.person} reviews)
                     </span>
                   </div>
-                  <p>{product?.desctiption}</p>
+                  <p>{desctiption}</p>
                   <div className="cart-and-buy">
                     <div className="add-to-cart">
                       <div className="cart-quantity">
-                        <button>
+                        <button onClick={handleDecrement}>
                           <AiOutlineMinus />
                         </button>
-                        <input type="text" />
-                        <button>
+                        <input
+                          type="text"
+                          value={quantity}
+                          onChange={handleQuantity}
+                        />
+                        <button onClick={handleIncrement}>
                           <AiOutlinePlus />
                         </button>
                       </div>
-                      <button className="cart-button">ADD TO CART</button>
+                      <button
+                        className="cart-button"
+                        onClick={addToCartHandler}
+                      >
+                        ADD TO CART
+                      </button>
                     </div>
                     <button className="buy-button mt-3">BUY IT NOW</button>
                   </div>
@@ -198,15 +225,14 @@ const BikeDetails = (props) => {
               <div className="col-md-6">
                 <div className="features">
                   <h3>Features</h3>
-                  <p>{product?.features}</p>
+                  <p>{features}</p>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="details">
                   <h3>Details</h3>
                   <ul>
-                    {product?.details &&
-                      product?.details.map((detail) => <li>{detail}</li>)}
+                    {details && details.map((detail) => <li>{detail}</li>)}
                   </ul>
                 </div>
               </div>
@@ -216,8 +242,8 @@ const BikeDetails = (props) => {
         <div className="images pb-5">
           <div className="container">
             <div className="row g-5">
-              {product?.images &&
-                product?.images.map((img) => (
+              {images &&
+                images.map((img) => (
                   <div className="col-md-4">
                     <img className="w-100" src={img} alt="" />
                   </div>

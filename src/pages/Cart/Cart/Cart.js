@@ -1,15 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../../../components/Footer/Footer';
 import Header from '../../../components/Header/Header';
 import CartProduct from '../CartProduct/CartProduct';
+import {
+  addToCart,
+  loadFromLocalStorage,
+  removeFromCart,
+} from '../../../redux/actions/cartAction';
+import { useSelector, useDispatch } from 'react-redux';
 import './Cart.css';
 const Cart = () => {
-  const [cartProducts, setCartProducts] = useState([]);
+  const dispatch = useDispatch();
+
+  // get cart from store
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
+  // handle delete
+  const handleDelete = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
+  // handle update cart
+  const handleUpdateCart = (id, qty) => {
+    dispatch(addToCart(id, qty));
+  };
+  // load data from local storage
   useEffect(() => {
-    fetch('http://localhost:5000/bikes')
-      .then((res) => res.json())
-      .then((data) => setCartProducts(data));
-  }, []);
+    dispatch(loadFromLocalStorage());
+  }, [dispatch]);
 
   return (
     <>
@@ -23,8 +42,13 @@ const Cart = () => {
               <h6 className="quantity">quantity</h6>
               <h6 className="total">total</h6>
             </div>
-            {cartProducts?.map((cartProduct) => (
-              <CartProduct product={cartProduct} Key={cartProduct._id} />
+            {cartItems?.map((cartProduct) => (
+              <CartProduct
+                product={cartProduct}
+                handleDelete={handleDelete}
+                handleUpdateCart={handleUpdateCart}
+                key={cartProduct._id + 'acb'}
+              />
             ))}
           </div>
         </div>

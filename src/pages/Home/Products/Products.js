@@ -6,7 +6,7 @@ import Spinner from '../../../components/Spinner/Spinner';
 const Products = () => {
   const dispatch = useDispatch();
   const getProducts = useSelector((state) => state.getProducts);
-  const { products, error, loading } = getProducts;
+  const { products, loading } = getProducts;
 
   // const
   useEffect(() => {
@@ -25,7 +25,7 @@ const Products = () => {
         </h2>
         <div className="products pt-4">
           <div className="row g-4 g-md-3">
-            {products.map((product) => (
+            {products?.map((product) => (
               <Product key={product._id} product={product} />
             ))}
           </div>
