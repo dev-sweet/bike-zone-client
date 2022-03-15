@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadFromLocalStorage } from '../../redux/actions/cartAction';
 import { Offcanvas, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import './Header.css';
+import { loadFavoritesFromLocalStorage } from '../../redux/actions/favoriteAction';
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -25,14 +26,22 @@ const Header = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+
   let totalCartItems = 0;
-  for (let item of cartItems) {
-    totalCartItems += item.qty;
-  }
+  cartItems?.map((item) => (totalCartItems += item.qty));
+
+  // total favorite items
+  const favorites = useSelector((state) => state.favorites);
+  const { favoriteItems } = favorites;
+  const totalFavoriteItems = favoriteItems?.length || 0;
+
+  // handle register toggler
   const handleRegister = () => {
     setLoginShow(false);
     setRegisterShow(true);
   };
+
+  // handle login toggler
   const handleLogin = () => {
     setLoginShow(true);
     setRegisterShow(false);
@@ -40,6 +49,10 @@ const Header = () => {
 
   useEffect(() => {
     dispatch(loadFromLocalStorage());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(loadFavoritesFromLocalStorage());
   }, [dispatch]);
 
   return (
@@ -128,7 +141,7 @@ const Header = () => {
               >
                 <NavLink to="/favorites">
                   <BsSuitHeart />
-                  <span>0</span>
+                  <span>{totalFavoriteItems}</span>
                 </NavLink>
               </OverlayTrigger>
             </li>

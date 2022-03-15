@@ -71,12 +71,6 @@
   letter-spacing: 2px;
 }
 
-.add-to-cart {
-  width: 320px;
-  display: flex;
-  align-items: center;
-}
-
 .cart-quantity {
   width: 90px;
   display: flex;

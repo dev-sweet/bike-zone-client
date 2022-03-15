@@ -4,7 +4,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
     case actionTypes.ADD_TO_CART: {
       const item = action.payload;
-      const existItem = state.cartItems.find((bike) => bike._id === item._id);
+      const existItem = state.cartItems?.find((bike) => bike._id === item._id);
       if (existItem) {
         return {
           ...state,
@@ -30,7 +30,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
     case actionTypes.LOAD_FROM_LOCAL_STORAGE: {
       return {
         ...state,
-        cartItems: action.payload,
+        cartItems: action.payload ? action.payload : [],
       };
     }
     default:

@@ -29,14 +29,21 @@ import { addToCart } from '../../redux/actions/cartAction';
 import { getProduct } from '../../redux/actions/productAction';
 
 const BikeDetails = () => {
+  // set product quantity
   const [quantity, setQuantity] = useState(1);
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const params = useParams();
-  const dispatch = useDispatch();
-  const id = params.id;
-  const productDetails = useSelector((state) => state.getProduct);
 
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const params = useParams();
+  const id = params.id;
+
+  // load product details
+  const productDetails = useSelector((state) => state.getProduct);
   const { product, loading } = productDetails;
+
+  // destructure all product details properties
   const {
     _id,
     name,
@@ -53,29 +60,38 @@ const BikeDetails = () => {
     reviews,
   } = product;
 
+  // handle product quantity
   const handleQuantity = (e) => {
     const value = parseInt(e.target.value);
     if (value > 1 && value <= 5) {
       setQuantity(value);
     }
   };
+
+  // handle product quantity increment
   const handleIncrement = () => {
     if (quantity < 5) {
       setQuantity(quantity + 1);
     }
   };
+
+  // handle product quantity increment
   const handleDecrement = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
+
   // add to cart
   const addToCartHandler = () => {
     dispatch(addToCart(_id, quantity));
   };
+
+  // load all product
   useEffect(() => {
     dispatch(getProduct(id));
   }, [dispatch, id]);
+
   return loading ? (
     <Spinner />
   ) : (

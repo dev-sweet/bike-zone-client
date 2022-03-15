@@ -5,6 +5,7 @@ import Home from './pages/Home/Home/Home';
 import BikeDetails from './pages/BikeDetails/BikeDetails';
 import { Bikes } from './pages/Bikes/Bikes';
 import Cart from './pages/Cart/Cart/Cart';
+import FavoritesList from './pages/FavoriteList/FavoritesList/FavoritesList';
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/bikes" element={<Bikes />} />
           <Route exact path="/bikes/:id" element={<BikeDetails />} />
           <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/favorites" element={<FavoritesList />} />
         </Routes>
       </Router>
     </div>

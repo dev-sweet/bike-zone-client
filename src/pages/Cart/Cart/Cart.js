@@ -1,21 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Footer from '../../../components/Footer/Footer';
 import Header from '../../../components/Header/Header';
 import CartProduct from '../CartProduct/CartProduct';
 import { AiOutlineWarning, AiOutlineShopping } from 'react-icons/ai';
-import {
-  addToCart,
-  loadFromLocalStorage,
-  removeFromCart,
-} from '../../../redux/actions/cartAction';
+import { addToCart, removeFromCart } from '../../../redux/actions/cartAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import './Cart.css';
+
 const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // get cart from store
+
+  // get cart from redux store
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
@@ -46,25 +44,20 @@ const Cart = () => {
   let subTotal = 0;
   cartItems?.map((item) => (subTotal = subTotal + item.qty * item.price));
 
-  // load data from local storage
-  useEffect(() => {
-    dispatch(loadFromLocalStorage());
-  }, [dispatch]);
-
   return (
     <>
       <Header />
 
-      {cartItems.length === 0 ? (
+      {cartItems?.length === 0 || !cartItems ? (
         <div className="empty-list">
           <div className="empty-icon">
             <AiOutlineShopping />
           </div>
-          <h4>WISHLIST IS EMPTY.</h4>
+          <h4>YOUR CART IS EMPTY.</h4>
           <p>
             Before proceed to checkout you must add some products to your
             shopping cart. <br />
-            You will find a lot of interesting products on our "Shop" page.
+            You will find a lot of interesting products on our "Bike" page.
           </p>
           <Link className="banner-btn" to="/bikes">
             RETURN TO SHOP
